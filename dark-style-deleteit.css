@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Ubuntu', sans-serif;
+	background: var(--background);
+	margin: 0;
+	color: var(--font);
+}
+
+.container {
+	height: auto;
+	width: 100vw;
+}
+.header {
+	width: 100vw;
+	height: 100px;
+	display: flex;
+	position: fixed;
+	top: 0;
+}
+
+.header .burger-menu {
+	position: relative;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	width: 80px;
+	cursor: pointer;
+	transition: all 0.5s ease-in-out;
+}
+
+.header .burger-menu .burger-menu-btn {
+	width: 25px;
+	height: 4px;
+	background: var(--font);
+	border-radius: 5px;
+	transition: all 0.5s ease-in-out;
+}
+
+.header .burger-menu .burger-menu-btn::before,
+.header .burger-menu .burger-menu-btn::after {
+	content: '';
+	position: absolute;
+	width: 25px;
+	height: 4px;
+	background: var(--font);
+	border-radius: 5px;
+	transition: all 0.5s ease-in-out;
+}
+
+.header .burger-menu .burger-menu-btn::before {
+	transform: translateY(-10px);
+}
+
+.header .burger-menu .burger-menu-btn::after {
+	transform: translateY(10px);
+}
+
+.header .burger-menu.open .burger-menu-btn {
+	transform: translateX(-30px);
+	background: transparent;
+}
+
+.header .burger-menu.open .burger-menu-btn::before {
+	transform: rotate(45deg) translate(25px, -25px);
+}
+
+.header .burger-menu.open .burger-menu-btn::after {
+	transform: rotate(-45deg) translate(25px, 25px);
+}
+
+.header .logo {
+	width: auto;
+	padding: 5px 100px;
+}
+
+.header .logo h2 {
+	cursor: pointer;
+	font-size: 30px;
+	white-space: nowrap;
+}
+
+.header .logo h2:hover {
+	color: var(--hover-color);
+	transform: scale(1.2);
+	transition: all 0.2s ease-in-out;
+}
+
+.header > nav {
+	width: auto;
+	margin: auto;
+	margin-top: 25px;
+	margin-right: 40px;
+	line-height: 30px;
+}
+
+.header > nav > a {
+	text-decoration: none;
+	color: inherit;
+	font-size: 23px;
+	padding: 30px;
+}
+
+.header > nav > a:hover {
+	color: var(--hover-color);
+}
+
+.header .theme-switch {
+	cursor: pointer;
+	margin-right: 10px;
+	margin-top: 10px;
+	position: absolute;
+	right: 10px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: var(--font);
+	color: khaki;
+}
+
+.header .theme-switch .fa-sun {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	font-size: 23px;
+	color: var(--background);
+}
+
+/* TODO animation easter egg - JS works */
+.fadeEffect {
+	transition: opaqueEffect 2s ease-in-out;
+}
+
+@keyframes opaqueEffect {
+	from {
+		transform: scale(1);
+	}
+	to {
+		opacity: scale(0.5);
+	}
+}
+
+.hero-section {
+	position: relative;
+	display: flex;
+	margin-top: 100px;
+	width: 100%;
+	height: auto;
+}
+
+.tagline {
+	padding: 50px 50px;
+	text-align: right;
+	width: 50%;
+	height: 100%;
+	background-color: #b67171;
+	color: var(--background);
+}
+
+.tagline h2 {
+	font-size: 65px;
+}
+
+.tagline small {
+	font-size: 25px;
+}
+
+.tagline #tag-text {
+	line-height: 15px;
+	font-size: 30px;
+	font-weight: 550;
+}
+
+.detail-desc {
+	display: none;
+}
+
+.tagline h2:hover + .detail-desc,
+.tagline h2:active + .detail-desc {
+	display: block;
+}
+
+.profile-pic-wrapper {
+	display: flex;
+
+	text-align: left;
+	width: 50%;
+	height: auto;
+	background-color: rgba(0, 0, 1, 0.24);
+	backdrop-filter: blur(100%);
+	text-align: left;
+}
+.profile-pic {
+	margin: auto;
+}
+.profile-pic > img {
+	border: #b67171 5px solid;
+	border-radius: 50%;
+	background-color: rgba(250, 235, 215, 0.8);
+	clip: circle(40%);
+	height: auto;
+	width: 500px;
+}
+
+.profile-pic > img:hover,
+.profile-pic > img:active {
+	transform: rotate(360deg);
+	transition: transform 1s;
+}
+
+.profile-pic-wrapper .icons {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	margin-left: 60px;
+	width: auto;
+	height: 100%;
+}
+.profile-pic-wrapper .icons img {
+	height: auto;
+	width: 50px;
+}
+
+@media (max-width: 1100px) {
+	.header .logo {
+		padding: 5px 60px;
+	}
+	.header > nav > a {
+		font-size: 20px;
+		padding: 25px;
+	}
+	.header .theme-switch {
+		margin-left: 20px;
+	}
+	.profile-pic > img {
+		width: 300px;
+	}
+	.tagline h2 {
+		font-size: 35px;
+	}
+
+	.tagline small {
+		font-size: 20px;
+	}
+
+	.tagline #tag-text {
+		font-size: 22px;
+		font-weight: 600;
+	}
+}
+
+@media (max-width: 768px) {
+	.header .burger-menu {
+		display: flex;
+	}
+
+	.nav-links {
+		position: absolute;
+		left: 0px;
+		top: 5.5vh;
+		height: 92vh;
+		background-color: var(--background);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		transform: translateX(-100%);
+		transition: transform 0.5s ease-in;
+		z-index: 1;
+	}
+
+	.header .logo {
+		padding: 0 50px;
+	}
+
+	.header .theme-switch {
+		margin-left: 42px;
+	}
+	.copyright {
+		font-size: 10px;
+	}
+	.hero-section {
+		flex-direction: column-reverse;
+		z-index: -1;
+	}
+	.tagline {
+		text-align: center;
+		width: 100%;
+	}
+	.tagline h2 {
+		font-size: 30px;
+	}
+	.tagline #tag-text {
+		font-size: 20px;
+		font-weight: 400;
+	}
+	.profile-pic-wrapper {
+		height: auto;
+		width: 100%;
+	}
+	.profile-pic {
+		margin: auto;
+	}
+	.profile-pic > img {
+		width: 200px;
+	}
+}
+
+@media (max-width: 650px) {
+	.header .logo {
+		padding: 0 50px;
+	}
+
+	.header > .logo > h2 {
+		font-size: 20px;
+	}
+	.header .theme-switch {
+		margin-left: 42px;
+	}
+}
+
+@media (max-width: 360px) {
+	.header .logo {
+		padding: 0 30px;
+	}
+
+	.header > .logo > h2 {
+		font-size: 20px;
+	}
+	.header .theme-switch {
+		margin-left: 22px;
+	}
+}
+.nav-active {
+	transform: translateX(0%);
+}
+.copyright {
+	position: fixed;
+	bottom: 0;
+	right: 20px;
+	color: inherit;
+}

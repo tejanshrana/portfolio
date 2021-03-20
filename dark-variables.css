@@ -1,0 +1,10 @@
+:root {
+	--background: #242526;
+	--font: antiquewhite;
+	--hover-color: tomato;
+	--background-dark: rgba(0, 0, 1, 0.24);
+	--profile-background: #b67171;
+	--company-background: #8e979481;
+	--shadow-dark: #3a3b3b;
+	--shadow-light: #171718;
+}
