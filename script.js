@@ -18,10 +18,6 @@ const lightTheme = "https://d3o36tnwurb13j.cloudfront.net/light-variables.css";
 const darkTheme = "https://d3o36tnwurb13j.cloudfront.net/dark-variables.css";
 
 
-function submit() {
-    console.log("Submitting form")
-}
-
 function themeSwitch () {
     const currentStyle = stylesheet.href
     if (currentStyle.indexOf(lightTheme) !== -1) {
@@ -34,7 +30,7 @@ function themeSwitch () {
     else {
         stylesheet.href = lightTheme
         themeIcon.classList.remove(darkIcon)
-        themeIcon.classList.add(lightIcon)   
+        themeIcon.classList.add(lightIcon)
         awsImg.src = "https://d3o36tnwurb13j.cloudfront.net/assets/icons/Amazon_Web_Services_Logo.svg.png"
         arachasImg.src = "https://d3o36tnwurb13j.cloudfront.net/assets/icons/Arachas_2019.png"
     }
@@ -63,12 +59,12 @@ nameAsLogo.addEventListener('click', () => {
 })
 
 expandingCards.forEach(card => card.addEventListener('click', () => {
-    
+
     card.classList.toggle('active')
 })
 )
 companyWrapper.forEach(wrapper => wrapper.addEventListener('click', () => {
-    
+
     wrapper.classList.toggle('active-com')
 })
 )
@@ -96,7 +92,7 @@ async function sendEmail(body) {
 
     } catch (e) {
         return e;
-    }    
+    }
 }
 
 const msgBack = document.getElementById("msg-again")
@@ -111,7 +107,7 @@ const submitButton = document.getElementById("submit-button")
 document.addEventListener('submit', event => {
     event.preventDefault();
     sendEmail(Object.fromEntries(new FormData(event.target)))
-   
+
 })
 
 
